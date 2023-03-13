@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CITT Thailand [Landpage]</title>
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+    <!-- CSS -->
+    <link rel="stylesheet" href="stylesCSS/landpage.css">
+    <!-- IconScout -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav>
+        <div class="navbarOne"> 
+            <a href="#" class="webLogo"><span>CITT</span> Thailand</a>
+            <ul class="webLinks">
+                <li><a href="mainpage.html">About CITT</a></li>
+                <div class="dropdown">
+                    <li class="dropbtn">Categories</li>
+                    <div class="dropContent">
+                        <a href="#" class="catedrop">News/BLogs</a>
+                        <a href="#" class="catedrop">IT Awards</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <li class="dropbtn">DTIC</li>
+                    <div class="dropContent">
+                        <a href="#" class="catedrop">Intro</a>
+                        <a href="#" class="catedrop">Objects</a>
+                        <a href="#" class="catedrop">Team</a>
+                        <a href="#" class="catedrop">Admin</a>
+                        <a href="#" class="catedrop">FB Page</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </nav>
+    <div class="greeetingMSG">
+        <h1>
+            <span>WELCOME</span>
+            to visitors
+        </h1>
+        <p>Official Website of The Association of Council of IT Deans
+        </p>
+        <div class="explorebtn">
+            <a href="https://citt.or.th/main/">Explore Official</a>
+            <a href="mainpage.html">Explore new prototype</a>
+        </div>
+    </div>
+    <div class="digitalClock">
+        <h1>TIME ON NOW</h1>
+        <i class="uil uil-ellipsis-v dot-menu-btn" id="active-menu"></i>
+        <ul class="dot-menu" id="active-menu">
+            <li class="menu-item" id="active-menu">
+                <span class="clockFormat" id="active-menu">24-hour format</span>
+                <div class="format-switch-btn" id="active-menu" data-format="12"></div>
+            </li>
+        </ul>
+        <div class="time">
+            <span class="hours">00</span>
+            <span class="dots">:</span>
+            <span class="minutes">00</span>
+            <div class="rightSide">
+                <span class="period">AM/PM</span>
+                <span class="seconds">00</span>
+            </div>
+        </div>
+        <div class="calendar">
+            <span class="month">Month</span>,
+            <span class="day">Day</span>
+            <span class="date">00</span>,
+            <span class="year">0000</span>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <div class="footBottom">
+            <div class="fbContainer">
+                <p class="footCopyright">©️ 2023 Council of IT Deans of Thailand (CITT)</p>
+                <div class="footSocial">
+                    <a href="#" class="fsIcons">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="fsIcons">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        //JS for switch
+        const formatSwitch = document.querySelector(".format-switch-btn");
+        formatSwitch.addEventListener("click", () => {
+            formatSwitch.classList.toggle("active");
+            var formatValue = formatSwitch.getAttribute("data-format");
+            if (formatValue === "12") {
+                formatSwitch.setAttribute("data-format", "24");
+            }
+            else {
+                formatSwitch.setAttribute("data-format", "12");
+            }
+        });
+        //JS currect time
+        function clock() {
+            var today = new Date();
+
+            var hours = today.getHours();
+            var minutes = today.getMinutes();
+            var seconds = today.getSeconds();
+            let period = "AM";
+
+            //Set the time period
+            if (hours >= 12) {
+                period = "PM"
+            }
+
+            //Set the 12 hours
+            var formatValue = formatSwitch.getAttribute("data-format");
+
+            if (formatValue === "12") {
+                hours = hours > 12 ? hours % 12 : hours;
+            }
+
+            //Add 0 for value lower 10
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+
+            document.querySelector(".hours").innerHTML = hours;
+            document.querySelector(".minutes").innerHTML = minutes;
+            document.querySelector(".seconds").innerHTML = seconds;
+            document.querySelector(".period").innerHTML = period;
+        }
+
+        var updateClock = setInterval(clock, 1000);
+
+        //set date
+        var today = new Date();
+        const date = today.getDate();
+        const year = today.getFullYear();
+        const day = today.toLocaleString("default", { weekday: "long" });
+        const month = today.toLocaleString("default", { month: "long" });
+
+        document.querySelector(".month").innerHTML = month;
+        document.querySelector(".day").innerHTML = day;
+        document.querySelector(".date").innerHTML = date;
+        document.querySelector(".year").innerHTML = year;
+
+        //JS for dot menu
+        const dotMenuBTN = document.querySelector(".dot-menu-btn");
+        const dotMenu = document.querySelector(".dot-menu");
+
+        dotMenuBTN.addEventListener("click", () => {
+            dotMenu.classList.toggle("active")
+        });
+        document.addEventListener("click", (e) => {
+            if (e.target.id !== "active-menu") {
+                dotMenu.classList.remove("active");
+            }
+        });
+    </script>
+</body>
+
+</html>

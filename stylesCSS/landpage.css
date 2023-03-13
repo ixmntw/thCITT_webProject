@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&family=Quicksand&family=Sarabun&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Quicksand', 'Sarabun', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #C82121;
+    --secondary-color: #0D0CB5;
+    --primary-black: #111;
+    --gray: #aaa;
+}
+
+/* Default Style */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    min-height: 100vh;
+    display: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--gray);
+}
+
+/* navbar */
+nav {
+    padding: 0;
+}
+
+.navbarOne {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbarOne .webLogo {
+    font-size: 1.75rem;
+    color: var(--primary-black);
+}
+
+.navbarOne .webLogo span {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 2.25rem;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.navbarOne .webLinks {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+}
+
+.navbarOne .webLinks a {
+    font-size: 1.125rem;
+    color: var(--primary-black);
+    transition: 0.5s ease;
+}
+
+.navbarOne .webLinks a:hover {
+    color: #fff;
+    padding: 10px;
+    background-color: var(--primary-color);
+    border-radius: 25px;
+}
+
+.dropbtn {
+    font-size: 1.125rem;
+    color: var(--primary-black);
+    transition: 0.5s ease;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropContent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    max-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.dropContent a {
+    color: black;
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropContent a.catedrop:hover {
+    color: var(--primary-color);
+    background-color: #ddd;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropContent {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    color: #fff;
+    padding: 10px;
+    background-color: var(--primary-color);
+    border-radius: 25px;
+}
+
+/* Greeting MSG */
+.greeetingMSG {
+    margin: 0 auto;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.greeetingMSG h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 5.5rem;
+}
+
+.greeetingMSG h1 span {
+    color: var(--primary-color);
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+.greeetingMSG p {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 1.125rem;
+    line-height: 2;
+    margin: 1rem 0;
+}
+
+.greeetingMSG a {
+    display: inline-block;
+    padding: 1rem 3.5rem;
+    background-color: #C82121;
+    color: #fff;
+    font-size: 1.125rem;
+    border-radius: 30px;
+    transition: 0.5s ease;
+}
+
+.greeetingMSG a:hover {
+    background-color: var(--secondary-color);
+}
+
+.digitalClock {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 10%;
+    color: #fff;
+    background: var(--primary-color);
+    width: 425px;
+    padding: 20px 45px;
+    box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.digitalClock:before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(45deg, #24ff6d, #2f93f1, #ff5e9a);
+    background-size: 200% 200%;
+    top: -5px;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    z-index: -1;
+    filter: blur(40px);
+    animation: glowing 10s ease infinite;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    0% {
+        background-position: 0 50%;
+    }
+}
+
+.time {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hours,
+.dots,
+.minutes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    padding: 0 10px;
+    line-height: 125px;
+    font-size: 3rem;
+}
+
+.hours,
+.minutes {
+    font-size: 6.5em;
+    color: #929292;
+}
+
+.hours {
+    background: -webkit-linear-gradient(90deg, var(--gray), white);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.minutes {
+    background: -webkit-linear-gradient(90deg, var(--gray), white);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.rightSide {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.period,
+.seconds {
+    font-size: 1.75em;
+    font-weight: 500;
+}
+
+.period {
+    transform: translateY(-20px);
+    background: white;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.seconds {
+    transform: translateY(16px);
+    background: white;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    font-weight: 400px;
+    margin-bottom: 5px;
+    background: white;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.day,
+.date,
+.year {
+    margin-left: 8px;
+}
+
+.dot-menu-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    color: #efefef;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.dot-menu {
+    z-index: 999;
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    list-style: none;
+    background: #353e54;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.dot-menu.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clockFormat {
+    color: #efefef;
+    font-size: 0.9em;
+    margin-right: 20px;
+}
+
+.format-switch-btn {
+    width: 35px;
+    height: 15px;
+    background: #485470;
+    border-radius: 75px;
+    box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.format-switch-btn:before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #ff5e9a;
+    border-radius: 50%;
+    box-shadow: 0 5px 25px #ff5e9a;
+    transform: translateX(-10px);
+    transition: 0.3s ease;
+    transition-property: background, transform;
+}
+
+.format-switch-btn.active:before {
+    background: #0bff8d;
+    box-shadow: 0 5px 25px #0bff8d;
+    transform: translateX(10px);
+}
+
+.footBottom {
+    background-color: #929292;
+}
+
+.fbContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    padding: 1.25rem 1.25rem;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footCopyright {
+    color: black;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    text-align: center;
+}
+
+.footSocial {
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+}
+
+.fsIcons {
+    color: white;
+}
+
+.fsIcons i {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* small breakpoint */
+@media (min-width: 640px) {
+    .footContainer {
+        flex-direction: row;
+    }
+
+    .footInfo {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+    }
+
+    .footTitle {
+        justify-content: flex-start;
+    }
+
+    .footSection-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .fbContainer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
