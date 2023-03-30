@@ -25,7 +25,7 @@ body {
     display: column;
     justify-content: center;
     align-items: center;
-    background: var(--gray);
+    background: #DEE1EC;
 }
 
 /* navbar */
@@ -165,6 +165,11 @@ nav {
 
 .greeetingMSG a:hover {
     background-color: var(--secondary-color);
+}
+
+.explorebtn {
+    display: flex;
+    gap: 1.25rem;
 }
 
 .digitalClock {
